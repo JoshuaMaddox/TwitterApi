@@ -4,7 +4,7 @@ const fs = require('fs'),
       Twitter = require('twitter'),
       userFavs = path.join(__dirname, '../data/userFavorites.json')
 
-require('dotenv').load()
+// require('dotenv').load()
 
 const client = new Twitter({
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
