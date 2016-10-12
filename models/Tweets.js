@@ -41,8 +41,6 @@ exports.getAllFavs = function(cb){
 
 //add to favs DELETE TO HERE
 exports.addToFavs = function(favObj, cb) {
-  console.log('I am favObj: ', favObj)
-  console.log('I am favObj.id: ', favObj.id)
   let newArr;
   exports.getAllFavs((err, favs) => {
     if(err) return cb(err)
@@ -52,9 +50,22 @@ exports.addToFavs = function(favObj, cb) {
       }
     })
   newArr.push(favObj)
-  console.log('newArr: ', newArr)
   exports.write(newArr) 
   cb(null, newArr)
+  })
+}
+
+//delete a fav
+exports.deleteFavs = function(searchId, cb) {
+  exports.getAllFavs((err, favs) => {
+    let newFavs = []
+    newFavs = favs.filter((fav) => {
+      if(searchId !== fav.id) {
+        return fav
+      } 
+    })
+    exports.write(newFavs)
+    cb(null, newFavs) 
   })
 }
 

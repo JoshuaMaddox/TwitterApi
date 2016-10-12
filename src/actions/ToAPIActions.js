@@ -8,6 +8,14 @@ const ToAPIActions = {
 
   addFav(id){
     API.addFav(id)
+  },
+
+  deleteFav(id){
+    API.deleteFav(id)
+  },
+
+  getAllFavs(){
+    API.getAllFavs()
   }
 
 }
