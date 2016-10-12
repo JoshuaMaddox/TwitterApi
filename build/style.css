@@ -27,10 +27,11 @@ button:focus {
 .searchResultstweet {
   padding: 20px;
   margin: 15px auto 15px auto;
-  background-color: #bdc3c7;
+  background-color: #2c3e50;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   text-align: center;
   max-width: 500px;
+  color: #fff;
 }
 
 .searchBtn {
