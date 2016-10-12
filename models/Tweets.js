@@ -40,12 +40,21 @@ exports.getAllFavs = function(cb){
 }
 
 //add to favs DELETE TO HERE
-exports.addToFavs = function(searchId, cb) {
-  console.log('In the addTOFAVS:')
+exports.addToFavs = function(favObj, cb) {
+  console.log('I am favObj: ', favObj)
+  console.log('I am favObj.id: ', favObj.id)
+  let newArr;
   exports.getAllFavs((err, favs) => {
-    console.log('err: ', err)
     if(err) return cb(err)
-    console.log('favs 1', favs)
+    newArr = favs.filter((fav) => {
+      if(fav.id !== favObj.id) {
+        return true
+      }
+    })
+  newArr.push(favObj)
+  console.log('newArr: ', newArr)
+  exports.write(newArr) 
+  cb(null, newArr)
   })
 }
 

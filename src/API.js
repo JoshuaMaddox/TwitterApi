@@ -14,8 +14,10 @@ const API = {
       .catch(console.error)
   },
 
-  addFav(id) { 
-    put(`http://localhost:8000/twitter/${id}`)
+  addFav(favObj) { 
+    console.log('favObj: ', favObj)
+    const { followers, id, img, name, text } = favObj
+    put(`http://localhost:8000/twitter?followers=${followers}&id=${id}&img=${img}&name=${name}&text=${text}`)
       .then(res => {
         // let { data } = res
         // ServerActions.confirmFav(data)

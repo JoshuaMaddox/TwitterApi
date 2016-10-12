@@ -42,8 +42,8 @@ app.get('/twitter/:q', (req, res) => {
 })
 
 //Add to favorites\
-app.put('/twitter/:q', (req, res) => {
-  let obj = req.params.q
+app.put('/twitter', (req, res) => {
+  let obj = req.query
   console.log('obj', obj)
   Tweets.addToFavs(obj, (err, newFavs) => {
     res.send(newFavs)
