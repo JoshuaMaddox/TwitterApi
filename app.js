@@ -31,6 +31,11 @@ app.use(webpackDevMiddleware(compiler, {
 }))
 app.use(webpackHotMiddleware(compiler))
 
+app.get('/', (req, res) => {
+  let filepath = path.resolve('index.html')
+  res.sendFile(filepath)
+})
+
 app.use('/twitter', require('./routes/twitter'))
 
 
