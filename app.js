@@ -1,4 +1,4 @@
-const PORT = 8000,
+const PORT = process.env.PORT || 8000,
       cors = require('cors'),
       path = require('path'),
       morgan = require('morgan'),
