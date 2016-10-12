@@ -4,7 +4,7 @@ import ServerActions from './actions/ServerActions'
 
 const API = {
   sendSearch(search){
-    get(`/twitter/${search}`)
+    get(`https://fierce-shelf-46768.herokuapp.com/twitter/${search}`)
       .then(res => {
         let { data } = res
         let newData = JSON.parse(data.body)
@@ -16,7 +16,7 @@ const API = {
 
   addFav(favObj) { 
     const { followers, id, img, name, text } = favObj
-    put(`/twitter?followers=${followers}&id=${id}&img=${img}&name=${name}&text=${text}`)
+    put(`https://fierce-shelf-46768.herokuapp.com/twitter?followers=${followers}&id=${id}&img=${img}&name=${name}&text=${text}`)
       .then(res => {
         let { data } = res
         ServerActions.receiveFavs(data)
@@ -25,7 +25,7 @@ const API = {
   },
 
   deleteFav(id) { 
-    axios.delete(`/twitter/${id}`)
+    axios.delete(`https://fierce-shelf-46768.herokuapp.com/twitter/${id}`)
       .then(res => {
         let { data } = res
         ServerActions.receiveFavs(data)
@@ -34,7 +34,7 @@ const API = {
   },
 
   getAllFavs(){
-    get(`/twitter/favorites`)
+    get(`https://fierce-shelf-46768.herokuapp.com/twitter/favorites`)
     .then(res => {
       let { data } = res
       ServerActions.receiveFavs(data)
