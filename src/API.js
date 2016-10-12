@@ -4,7 +4,7 @@ import ServerActions from './actions/ServerActions'
 
 const API = {
   sendSearch(search){
-    get(`http://localhost:8000/twitter/${search}`)
+    get(`/twitter/${search}`)
       .then(res => {
         let { data } = res
         let newData = JSON.parse(data.body)
@@ -16,7 +16,7 @@ const API = {
 
   addFav(favObj) { 
     const { followers, id, img, name, text } = favObj
-    put(`http://localhost:8000/twitter?followers=${followers}&id=${id}&img=${img}&name=${name}&text=${text}`)
+    put(`/twitter?followers=${followers}&id=${id}&img=${img}&name=${name}&text=${text}`)
       .then(res => {
         let { data } = res
         ServerActions.receiveFavs(data)
@@ -25,7 +25,7 @@ const API = {
   },
 
   deleteFav(id) { 
-    axios.delete(`http://localhost:8000/twitter/${id}`)
+    axios.delete(`/twitter/${id}`)
       .then(res => {
         let { data } = res
         ServerActions.receiveFavs(data)
@@ -34,7 +34,7 @@ const API = {
   },
 
   getAllFavs(){
-    get(`http://localhost:8000/twitter/favorites`)
+    get(`/twitter/favorites`)
     .then(res => {
       let { data } = res
       ServerActions.receiveFavs(data)
